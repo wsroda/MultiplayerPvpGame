@@ -11,9 +11,13 @@ public class ChrControllerBolt : Bolt.EntityBehaviour<IPvpPlayerState>
     public float runSpeed= 5.0f ;
     public float walkSpeed= 1.0f ;
 
-    public override void Attached()
+
+    private void Start()
     {
         AttachCamera();
+    }
+    public override void Attached()
+    {        
         anim = GetComponent<Animator>();
         state.SetTransforms(state.Transform, transform);
         state.SetAnimator(anim);
@@ -30,11 +34,8 @@ public class ChrControllerBolt : Bolt.EntityBehaviour<IPvpPlayerState>
     {
         Vector3 translatation = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
         translatation.Normalize();
-        // float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
         translatation *= BoltNetwork.FrameDeltaTime * speed;
-        // rotation *= BoltNetwork.FrameDeltaTime;
         transform.position += translatation;
-        // transform.Rotate(0, rotation, 0);
         Vector3 mousePos = GetMousePosOnScene();
         transform.LookAt(new Vector3(mousePos.x, this.transform.position.y, mousePos.z));
 
@@ -44,9 +45,6 @@ public class ChrControllerBolt : Bolt.EntityBehaviour<IPvpPlayerState>
             if (translatation != Vector3.zero)
             {
                 state.MoveState = (int)MoveState.RUN;
-                // state.Animator.SetBool("Run", true);
-                // state.Animator.SetBool("Walk", false);
-                // state.Animator.SetBool("Idle", false);
                 speed = runSpeed;
             }
         } 
@@ -55,18 +53,12 @@ public class ChrControllerBolt : Bolt.EntityBehaviour<IPvpPlayerState>
             if (translatation != Vector3.zero)
             {
                 state.MoveState = (int)MoveState.WALK;
-                // state.Animator.SetBool("Walk", true);
-                // state.Animator.SetBool("Run", false);
-                // state.Animator.SetBool("Idle", false);
                 speed = walkSpeed;
             }
 
             if (translatation == Vector3.zero)
             {
                 state.MoveState = (int)MoveState.IDLE;
-                // state.Animator.SetBool("Idle", true);
-                // state.Animator.SetBool("Run", false);
-                // state.Animator.SetBool("Walk", false);
             }
         }
     }

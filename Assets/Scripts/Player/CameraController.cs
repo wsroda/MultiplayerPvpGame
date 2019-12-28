@@ -32,9 +32,12 @@ public class CameraController : MonoBehaviour
 
     public void AttachCamera(ChrControllerBolt player)
     {
-        target = player;
-        // transform.LookAt(target.transform);
-        isAttached = true;
+        if (isAttached == false)
+        {
+            target = player;
+            // transform.LookAt(target.transform);
+            isAttached = true;
+        }
     }
 }
 
