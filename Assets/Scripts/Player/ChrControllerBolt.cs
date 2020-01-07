@@ -90,7 +90,15 @@ public class ChrControllerBolt : Bolt.EntityBehaviour<IPvpPlayerState>
 
             if (magnitude > 0f)
             {
-                moveState = cmd.Input.Shift ? moveState = MoveState.RUN : moveState = MoveState.WALK;
+                if (Input.GetKeyDown(KeyCode.LeftShift))
+                {
+                    moveState = cmd.Input.Shift ? moveState = MoveState.FRRUN : moveState = MoveState.FRWALK;
+                }
+                else
+                {
+                    moveState = cmd.Input.Shift ? moveState = MoveState.RUN : moveState = MoveState.WALK;
+                }
+                
             }
             else
             {
@@ -115,19 +123,60 @@ public class ChrControllerBolt : Bolt.EntityBehaviour<IPvpPlayerState>
                 state.Animator.SetBool("Idle", true);
                 state.Animator.SetBool("Run", false);
                 state.Animator.SetBool("Walk", false);
+                state.Animator.SetBool("FRRun", false);
+                state.Animator.SetBool("FRWalk", false);
+                state.Animator.SetBool("Death", false);
                 break;
 
             case MoveState.WALK:
                 state.Animator.SetBool("Walk", true);
                 state.Animator.SetBool("Run", false);
                 state.Animator.SetBool("Idle", false);
+                state.Animator.SetBool("FRRun", false);
+                state.Animator.SetBool("FRWalk", false);
+                state.Animator.SetBool("Death", false);
                 break;
             
             case MoveState.RUN:
                 state.Animator.SetBool("Run", true);
                 state.Animator.SetBool("Walk", false);
                 state.Animator.SetBool("Idle", false);
+                state.Animator.SetBool("FRRun", false);
+                state.Animator.SetBool("FRWalk", false);
+                state.Animator.SetBool("Death", false);
                 break;
+
+            case MoveState.FRWALK:
+                state.Animator.SetBool("Run", false);
+                state.Animator.SetBool("Walk", false);
+                state.Animator.SetBool("Idle", false);
+                state.Animator.SetBool("FRRun", false);
+                state.Animator.SetBool("FRWalk", true);
+                state.Animator.SetBool("Death", false);
+                break;
+
+
+            case MoveState.FRRUN:
+                state.Animator.SetBool("Run", false);
+                state.Animator.SetBool("Walk", false);
+                state.Animator.SetBool("Idle", false);
+                state.Animator.SetBool("FRRun", true);
+                state.Animator.SetBool("FRWalk", false);
+                state.Animator.SetBool("Death", false);
+                break;
+
+            case MoveState.DEATH:
+                state.Animator.SetBool("Run", false);
+                state.Animator.SetBool("Walk", false);
+                state.Animator.SetBool("Idle", false);
+                state.Animator.SetBool("FRRun", false);
+                state.Animator.SetBool("FRWalk", false);
+                state.Animator.SetBool("Death", true);
+                break;
+
+
+
+
         }        
     }
 
@@ -151,4 +200,7 @@ public class ChrControllerBolt : Bolt.EntityBehaviour<IPvpPlayerState>
      IDLE = 0,
      WALK = 1,
      RUN = 2,
- }
+     FRWALK = 3,
+     FRRUN = 4,
+     DEATH = 5,
+}
