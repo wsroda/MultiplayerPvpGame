@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerMovement : Bolt.EntityBehaviour<IPlayerCubeState>
 {
+
+
+
     [SerializeField]
     private float speed = 4f;
 
@@ -24,6 +27,7 @@ public class PlayerMovement : Bolt.EntityBehaviour<IPlayerCubeState>
     {
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
         float moveVertical = Input.GetAxisRaw("Vertical");
+        float shoot = Input.GetAxis("Fire1");
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical).normalized;
 
@@ -49,5 +53,7 @@ public class PlayerMovement : Bolt.EntityBehaviour<IPlayerCubeState>
             state.Animator.Play("PlayerIdleAnimation");
         }
     }
+
+
 
 }

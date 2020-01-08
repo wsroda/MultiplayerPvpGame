@@ -25,61 +25,24 @@ public class ChrController : MonoBehaviour
         transform.Translate(0, 0, translatation);
         transform.Rotate(0, rotation, 0);
 
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
+        if (Input.GetKey(KeyCode.LeftShift)) {
             if (translatation != 0)
             {
-                if (Input.GetKey(KeyCode.LeftControl))
-                {
-                    anim.SetBool("Run", false);
-                    anim.SetBool("Walk", false);
-                    anim.SetBool("Idle", false);
-                    anim.SetBool("FRWalk", false);
-                    anim.SetBool("FRRun", true);
-                    anim.SetBool("Dead", false);
-                    speed = runSpeed;
-                }
+                anim.SetBool("Run", true);
+                anim.SetBool("Walk", false);
+                anim.SetBool("Idle", false);
+                speed = runSpeed;
 
-                else
-                {
-                    anim.SetBool("Run", true);
-                    anim.SetBool("Walk", false);
-                    anim.SetBool("Idle", false);
-                    anim.SetBool("FRWalk", false);
-                    anim.SetBool("FRRun", false);
-                    anim.SetBool("Dead", false);
-                    speed = runSpeed;
-                }
             }
 
 
 
-        }
-        else
-        {
-
-            if (translatation != 0)
-            {
-                if (Input.GetKey(KeyCode.LeftControl))
-                {
-                    anim.SetBool("Walk", false);
-                    anim.SetBool("Run", false);
-                    anim.SetBool("Idle", false);
-                    anim.SetBool("FRWalk", true);
-                    anim.SetBool("FRRun", false);
-                    anim.SetBool("Dead", false);
-                    speed = walkSpeed;
-                }
-                else
-                {
-                    anim.SetBool("Walk", true);
-                    anim.SetBool("Run", false);
-                    anim.SetBool("Idle", false);
-                    anim.SetBool("FRWalk", false);
-                    anim.SetBool("FRRun", false);
-                    anim.SetBool("Dead", false);
-                    speed = walkSpeed;
-                }
+        } else {
+            if (translatation != 0) {
+                anim.SetBool("Walk", true);
+                anim.SetBool("Run", false);
+                anim.SetBool("Idle", false);
+                speed = walkSpeed;
             }
 
             if (translatation == 0)
@@ -87,10 +50,16 @@ public class ChrController : MonoBehaviour
                 anim.SetBool("Idle", true);
                 anim.SetBool("Run", false);
                 anim.SetBool("Walk", false);
-                anim.SetBool("FRWalk", false);
-                anim.SetBool("FRRun", false);
-                anim.SetBool("Dead", false);
             }
+
         }
+
+
+
+
+
+
+
+
     }
-}
+ }

@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 7079477483485408171}
   - component: {fileID: 7079477483485407828}
   m_Layer: 0
-  m_Name: Header
+  m_Name: ScoreboardHeader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

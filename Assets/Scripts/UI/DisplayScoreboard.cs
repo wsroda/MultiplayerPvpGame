@@ -37,7 +37,7 @@ public class DisplayScoreboard : MonoBehaviour
 
         for (int i = 0; i < PlayerObjectRegistry.players.Count; i++)
         {
-            // IPvpPlayerState playerState = PlayerObjectRegistry.players[i].character;
+            //IPvpPlayerState playerState = PlayerObjectRegistry.players[i].character;
             PlayerScoreboardController playerScore = Instantiate(scoreboardPlayerDataPrefab, scoreboardPanel);
             playerScore.ShowText("TEST", 100, 99);
         }
