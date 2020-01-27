@@ -35,11 +35,12 @@ public class DisplayScoreboard : MonoBehaviour
 
         Instantiate(scoreboardHeaderPrefab, scoreboardPanel);
 
-        for (int i = 0; i < PlayerObjectRegistry.players.Count; i++)
+        ChrControllerBolt[] players = FindObjectsOfType(typeof(ChrControllerBolt)) as ChrControllerBolt[];
+
+        foreach (var player in players)
         {
-            //IPvpPlayerState playerState = PlayerObjectRegistry.players[i].character;
             PlayerScoreboardController playerScore = Instantiate(scoreboardPlayerDataPrefab, scoreboardPanel);
-            playerScore.ShowText("TEST", 100, 99);
+            playerScore.ShowText(" ", player.state.Kills, player.state.Deaths);
         }
     }
 

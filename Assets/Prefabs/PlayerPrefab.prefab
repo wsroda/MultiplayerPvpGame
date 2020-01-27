@@ -3127,11 +3127,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1947956364980643606}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 81c2e4e053748a34faa8f7e274369381,
-        type: 3}
-      propertyPath: m_Name
-      value: m4a1
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 81c2e4e053748a34faa8f7e274369381,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3187,6 +3182,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -65.105
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 81c2e4e053748a34faa8f7e274369381,
+        type: 3}
+      propertyPath: m_Name
+      value: m4a1
+      objectReference: {fileID: 0}
     - target: {fileID: -4325311184474682850, guid: 81c2e4e053748a34faa8f7e274369381,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3207,10 +3207,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6504762314519690001}
     m_Modifications:
-    - target: {fileID: 1188629921856077439, guid: 8c8826d0d5d70504eb48a7b43829c3d0,
+    - target: {fileID: 1188629921856077426, guid: 8c8826d0d5d70504eb48a7b43829c3d0,
         type: 3}
-      propertyPath: m_Name
-      value: Muzzle Flash
+      propertyPath: LightsModule.intensityCurve.scalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1188629921856077426, guid: 8c8826d0d5d70504eb48a7b43829c3d0,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1188629921856077426, guid: 8c8826d0d5d70504eb48a7b43829c3d0,
+        type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1188629921856077426, guid: 8c8826d0d5d70504eb48a7b43829c3d0,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1188629921856077426, guid: 8c8826d0d5d70504eb48a7b43829c3d0,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1188629921856077424, guid: 8c8826d0d5d70504eb48a7b43829c3d0,
         type: 3}
@@ -3267,30 +3287,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1188629921856077426, guid: 8c8826d0d5d70504eb48a7b43829c3d0,
+    - target: {fileID: 1188629921856077439, guid: 8c8826d0d5d70504eb48a7b43829c3d0,
         type: 3}
-      propertyPath: LightsModule.intensityCurve.scalar
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1188629921856077426, guid: 8c8826d0d5d70504eb48a7b43829c3d0,
-        type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1188629921856077426, guid: 8c8826d0d5d70504eb48a7b43829c3d0,
-        type: 3}
-      propertyPath: InitialModule.gravityModifier.scalar
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1188629921856077426, guid: 8c8826d0d5d70504eb48a7b43829c3d0,
-        type: 3}
-      propertyPath: lengthInSec
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1188629921856077426, guid: 8c8826d0d5d70504eb48a7b43829c3d0,
-        type: 3}
-      propertyPath: InitialModule.startSpeed.minScalar
-      value: 1
+      propertyPath: m_Name
+      value: Muzzle Flash
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c8826d0d5d70504eb48a7b43829c3d0, type: 3}
